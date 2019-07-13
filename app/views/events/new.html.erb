@@ -1,0 +1,13 @@
+<h1>Create Event</h1>
+
+<%= form_for [@user,@created_event] fo |f| %>
+ <p>
+ 	<%= f.label :description %>
+ 	<%= f.text_field :description %>
+ </p>
+
+ <p>
+ 	<%= f.submit 'Create' %>
+ </p>
+
+<% end %>
