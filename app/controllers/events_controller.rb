@@ -1,7 +1,14 @@
 class EventsController < ApplicationController
 
+	def new
+		@user = User.find(session[:id])
+		@created_event = @user.created_events.build
+	end
+
 	def create
-		
+		@user = User.find(session[:id])
+		@created_event = @user.created_events.build(event_params)
+		@event.save
 	end
 
 	def show
