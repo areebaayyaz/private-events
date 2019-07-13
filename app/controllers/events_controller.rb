@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 	end
 
 	def show
-		
+		@event = Event.find(session[:id])
 	end
 
 	def index
