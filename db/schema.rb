@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2019_07_12_112919) do
 
   create_table "events", force: :cascade do |t|
-    t.string "event_name"
     t.date "event_date"
     t.text "description"
     t.integer "creator_id"
