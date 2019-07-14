@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+	include EventsHelper
 
 	def new
 		@user = User.find(session[:id])
@@ -8,7 +9,8 @@ class EventsController < ApplicationController
 	def create
 		@user = User.find(session[:id])
 		@created_event = @user.created_events.build(event_params)
-		@event.save
+		@created_event.save
+		redirect_to '/events'
 	end
 
 	def show

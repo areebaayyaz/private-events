@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include UsersHelper
 
-	def index
+  def index
     
   end
 
@@ -11,8 +11,9 @@ class UsersController < ApplicationController
 
 	def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to user_path(@user)
+    if @user.save
+    log_in @user
+    end
   end
 
 	def show
