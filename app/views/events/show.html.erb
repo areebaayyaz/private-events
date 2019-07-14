@@ -1,3 +1,12 @@
- <p>Hosted by: <%= @event.creator.name %></p> 
+ <p><h2>Hosted by: <%= @event.creator.name %></h2></p> 
 
+ <h3>List of attendees</h3>
+
+ <p>
+   <% if @event.attendees.any? %>
+    <% @event.attendees.each do |a| %>
+      a.name
+    <% end %>
+   <% end %>
+ </p>
 
