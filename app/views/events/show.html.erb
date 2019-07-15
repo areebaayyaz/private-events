@@ -4,9 +4,11 @@
 
  <p>
    <% if @event.attendees.any? %>
+   <ul>
     <% @event.attendees.each do |attendee| %>
-      attendee.name
+      <li><%= attendee.name %></li>
     <% end %>
+   </ul>
    <% end %>
  </p>
 

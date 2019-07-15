@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 		@user = User.find(session[:id])
 		@created_event = @user.created_events.build(event_params)
 		@created_event.save
-		redirect_to '/events'
+		redirect_to @user
 	end
 
 	def show
