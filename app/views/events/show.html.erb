@@ -3,9 +3,9 @@
  <h3>List of attendees</h3>
 
  <p>
-   <% if @event.event_attendings.any? %>
-    <% @event.attendees.each do |a| %>
-      a.name
+   <% if @event.attendees.any? %>
+    <% @event.attendees.each do |attendee| %>
+      attendee.name
     <% end %>
    <% end %>
  </p>
