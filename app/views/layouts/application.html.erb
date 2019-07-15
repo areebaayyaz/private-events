@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   '/login' %></li>
+        <li><%= link_to "Users",   '/users' %></li>
+        <li><%= link_to "Events", '/events' %></li>
+      </ul>
+    </nav>
     <p><%= flash.notice %></p>
     <%= yield %>
   </body>
