@@ -3,14 +3,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	@user= User.find_by(name: params[:session][:name])
-  	if @user
-  		log_in @user
-  		redirect_to @user
-  	else
-  		flash.now.notice = 'Invalid user name! Try Again.'
-  		render 'new'
-  	end
+    @user= User.find_by(name: params[:session][:name])
+    if @user
+      log_in @user
+      redirect_to @user
+    else
+      flash.now.notice = 'Invalid user name! Try Again.'
+      render 'new'
+    end
   end
 
   def destroy

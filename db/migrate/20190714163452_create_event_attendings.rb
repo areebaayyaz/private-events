@@ -1,7 +1,7 @@
 class CreateEventAttendings < ActiveRecord::Migration[5.2]
   def change
     create_table :event_attendings do |t|
-    	t.references :attendee, index: true
+      t.references :attendee, index: true
       t.references :attended_event, index: true
 
       t.timestamps

@@ -1,11 +1,11 @@
 <h1>Sign Up</h1>
 
 <%= form_for(@user) do |f| %>
-	<ul>
-	  <% @user.errors.full_messages.each do |error| %>
-		  <li><%= error %></li>
-		<% end %>
-	</ul>
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
 
   <p>
     <%= f.label :name, "User Name" %>

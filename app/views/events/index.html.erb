@@ -1,23 +1,23 @@
 <h1>All Events</h1>
 
 <% if @upcoming_events.any? %>
- <h2>Upcoming Events</h2>
- <ul>
+  <h2>Upcoming Events</h2>
+  <ul>
   <% @upcoming_events.each do |event| %>
-   <li><h3><%= link_to event.description, event %></h3></li>
-   <p><%= event.event_date %></p>
-   <br>
+    <li><h3><%= link_to event.description, event %></h3></li>
+    <p><%= event.event_date %></p>
+    <br>
   <% end %>
-</ul>
+  </ul>
 <% end %>
 
 <% if @past_events.any? %>
- <h2>Past Events</h2>
- <ul>
+  <h2>Past Events</h2>
+  <ul>
   <% @past_events.each do |event| %>
-   <li><h3><%= link_to event.description, event %></h3></li>
-   <p><%= event.event_date %></p>
-   <br>
+    <li><h3><%= link_to event.description, event %></h3></li>
+    <p><%= event.event_date %></p>
+    <br>
   <% end %>
-</ul>
+  </ul>
 <% end %>
