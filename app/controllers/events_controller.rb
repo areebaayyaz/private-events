@@ -14,6 +14,7 @@ before_action :authenticate_user, only: [:new, :create]
   def show
     @event = Event.find(params[:id])
     @attendees = @event.attendees
+    @current_user_attending = @current_user.present? && @attendees.exists?(@current_user.id)
   end
 
   def index
@@ -24,6 +25,11 @@ before_action :authenticate_user, only: [:new, :create]
 
   def event_params
     params.require(:event).permit(:description, :event_date)
+  end
+
+  def attending
+  @current_user.event_attendings.create(attended_event_id: params[:event_id])
+  redirect_to events_path   
   end
 
 end

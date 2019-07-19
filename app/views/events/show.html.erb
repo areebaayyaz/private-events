@@ -1,5 +1,11 @@
 <p><h2>Hosted by: <%= @event.creator.name %></h2></p> 
 
+<% if @current_user_attending %>
+  <h4>Your Status: Attendee</h4>
+<% elsif @current_user.present? %>
+  <%= button_to 'Attend', attending_event_path(event_id: @event.id) %>
+<% end %>
+
 <h3>List of attendees</h3>
 
   <p>
