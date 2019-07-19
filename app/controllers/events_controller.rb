@@ -2,15 +2,13 @@ class EventsController < ApplicationController
 
 before_action :authenticate_user, only: [:new, :create]
   def new
-    @user = User.find(session[:id])
-    @created_event = @user.created_events.build
+    @created_event = Event.new
   end
 
   def create
-    @user = User.find(session[:id])
-    @created_event = @user.created_events.build(event_params)
+    @created_event = @current_user.created_events.build(event_params)
     @created_event.save
-    redirect_to @user
+    redirect_to @current_user
   end
 
   def show

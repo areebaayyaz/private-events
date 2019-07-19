@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    redirect_to root_path, notice: "You're not authenticted user"
+    redirect_to root_path, notice: "You're not authenticted user" if @current_user.blank?
   end
 end
