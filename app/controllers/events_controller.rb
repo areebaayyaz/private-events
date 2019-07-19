@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-  include EventsHelper
 
 before_action :authenticate_user, only: [:new, :create]
   def new
@@ -23,4 +22,9 @@ before_action :authenticate_user, only: [:new, :create]
     @upcoming_events = @events.upcoming
     @past_events = @events.past
   end
+
+  def event_params
+    params.require(:event).permit(:description, :event_date)
+  end
+
 end

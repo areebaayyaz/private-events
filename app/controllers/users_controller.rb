@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include UsersHelper
 
   def index
     @users = User.all
@@ -12,7 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-    log_in @user
+      #logs in the given user
+    session[:id] = @user.id
     redirect_to @user
     end
   end
@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     @created_events=@user.created_events
     @upcoming_events = @user.attended_events.upcoming
     @past_events = @user.attended_events.past
+  end
+
+  def user_params
+    params.require(:user).permit(:name)
   end
 
 end

@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   def create
     @user= User.find_by(name: params[:session][:name])
     if @user
-      log_in @user
+      #logs in the given user
+      session[:id] = @user.id
       redirect_to @user
     else
       flash.now.notice = 'Invalid user name! Try Again.'
@@ -14,7 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    #logs out the current user
+    session[:id] = nil
     redirect_to root_url
   end
 end
